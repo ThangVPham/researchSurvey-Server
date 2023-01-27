@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
-const { json } = require("express");
+const surveyRoutes = require("./Routes/surveyRoutes");
+const userResponseRoutes = require("./Routes/userResponseRoutes");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -31,10 +32,7 @@ app.get("/", (req, res) => {
   res.send("Hello World");
 });
 
-const surveyController = require("./Controller/surveyController");
-const userController = require("./Controller/userController");
 const MAIN_SURVEY_ID = "6324d547c2e9d1cde20183d0";
-app.get("/surveys", surveyController.getAllSurveyData);
-app.get("/surveys/:id", surveyController.getSurveyById);
-app.post("/submit/newsurvey", surveyController.submitSurvey);
-app.post("/submit/userresponse", userController.submitUserResponse);
+
+app.use("/api/surveys", surveyRoutes);
+app.use("/api/userresponse", userResponseRoutes);

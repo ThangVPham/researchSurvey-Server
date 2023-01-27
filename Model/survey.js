@@ -7,6 +7,14 @@ const survey = new Schema(
       type: String,
       required: true,
     },
+    surveyOwner: {
+      type: String,
+      required: true,
+    },
+    surveyType: {
+      type: String,
+      required: true,
+    },
     description: {
       type: String,
       required: false,
@@ -17,7 +25,11 @@ const survey = new Schema(
     },
     dateCreated: {
       type: Date,
-      default: Date.now,
+      default: Date.now(),
+    },
+    dateEnd: {
+      type: Date,
+      required: true,
     },
     questions: [
       {
