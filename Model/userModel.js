@@ -3,24 +3,28 @@ const Schema = mongoose.Schema;
 
 const user = new Schema(
   {
-    userName: {
+    firstName: {
+      type: String,
+      default: "",
+    },
+    lastName: {
+      type: String,
+      default: "",
+    },
+
+    password: {
       type: String,
       required: true,
     },
+
     email: {
       type: String,
       required: true,
     },
-    surveyTaken: [
-      {
-        surveyId: {
-          type: String,
-          default: "63249273c87082cdf42db0c3",
-        },
-        surveyName: String,
-        response: [Object],
-      },
-    ],
+    surveyTaken: {
+      type: Array,
+      default: [],
+    },
   },
   {
     collection: "users",

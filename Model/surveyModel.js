@@ -1,3 +1,5 @@
+//possitble surveyTypes
+//[MC, Short Answer, Checkbox, Other]
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 

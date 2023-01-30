@@ -1,7 +1,8 @@
 require("dotenv").config();
 const express = require("express");
+const userRoutes = require("./Routes/userRoutes");
 const surveyRoutes = require("./Routes/surveyRoutes");
-const userResponseRoutes = require("./Routes/userResponseRoutes");
+const surveyResponseRoutes = require("./Routes/surveyResponseRoutes");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -29,10 +30,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-  res.send("Hello World");
+  res.send({ message: "Welcome!" });
 });
 
 const MAIN_SURVEY_ID = "6324d547c2e9d1cde20183d0";
 
-app.use("/api/surveys", surveyRoutes);
-app.use("/api/userresponse", userResponseRoutes);
+app.use("/survey", surveyRoutes);
+app.use("/response/submitresponse", surveyResponseRoutes);
+app.use("/user", userRoutes);

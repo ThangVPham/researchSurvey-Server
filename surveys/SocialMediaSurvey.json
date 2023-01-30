@@ -23,7 +23,7 @@
         {"questionType":"MC","question":"What is your go-to device to access your social media feed?","options":["Mobile","Tablet","Laptop", "Desktop"],"correctOption":null,"imgURL":[],"imgDesc":[]},
 
 
-        {"questionType":"Manual","question":"How many friends do you have on social media?","options":[],"correctOption":null,"imgURL":[],"imgDesc":[]},
+        {"questionType":"Short Answer","question":"How many friends do you have on social media (All platforms)?","options":[],"correctOption":null,"imgURL":[],"imgDesc":[]},
 
 
         {"questionType":"MC","question":"How many friends from your social media website have you met in person?","options":["All of them","Most of them","About half of them","A few of them","None of them"],"correctOption":null,"imgURL":[],"imgDesc":[]},
