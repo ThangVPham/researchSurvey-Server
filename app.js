@@ -8,11 +8,14 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
 const PORT = 5000;
-
 app.use(express.static("assets"));
-
+//  process.env.DB_URI;
+const testDB_URL =
+  "mongodb+srv://ThangPham:PasswordThangPham@cluster-comp229.uro55.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 mongoose
-  .connect(process.env.DB_URI)
+  .connect(
+    "mongodb+srv://ThangPham:PasswordThangPham@cluster-comp229.uro55.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+  )
   .then((result) => {
     console.log("Remote Database Connected");
 

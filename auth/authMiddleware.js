@@ -17,7 +17,11 @@ const authenticate = async (req, res, next) => {
       req.user = await User.findById(decodedToken.id).select("_id");
       next();
     } catch (e) {
+      console.log("here");
       console.log(e);
+      res
+        .status(401)
+        .json({ message: "Session Expired. Please log in to continue" });
     }
   } else {
     res.status(401).json({ message: "Not Authorized" });
