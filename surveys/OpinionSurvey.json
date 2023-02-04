@@ -1,18 +1,19 @@
 {
     "surveyName":"Product Awareness",
-    "surveyOwner":"Market Research Foundation",
+    "surveyOwner":"63d9e3eaee30c5b882f5592f",
+    "organization":"Market Research Foundation",
     "surveyType":"Market",
     "description":"Good survey questions will help your business acquire the right information to drive growth. Surveys can be made up of different types of questions. Each type has a unique approach to gathering data",
     "status":false,
     "dateEnd": "12-31-2022",
     "questions":[
-        {"questionType":"Short Answer","question":"What can you tell us about yourself? (Your age, gender, hobbies, interests, and anything else you’re willing to share)",
+        {"questionType":"Long Feedback","question":"What can you tell us about yourself? (Your age, gender, hobbies, interests, and anything else you’re willing to share)",
         "options":[],
         "correctOption":null,
         "imgURL":[],
         "imgDesc":[]
        },
-        {"questionType":"Short Answer","question":"What has kept you from signing up for our newsletter? ","options":[],"correctOption":null,"imgURL":[],"imgDesc":[]},
+        {"questionType":"Long Feedback","question":"What has kept you from signing up for our newsletter? ","options":[],"correctOption":null,"imgURL":[],"imgDesc":[]},
 
         
         {"questionType":"MC","question":"Which of the following are you most likely to read?","options":["a series of blog posts"," a novel","the daily news", " I don’t read on a regular basis"],"correctOption":null,"imgURL":[],"imgDesc":[]},

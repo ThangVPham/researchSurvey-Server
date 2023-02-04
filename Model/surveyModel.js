@@ -1,5 +1,6 @@
 //possitble surveyTypes
 //[MC, Short Answer, Checkbox, Other]
+const { ObjectID } = require("bson");
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
@@ -10,8 +11,12 @@ const survey = new Schema(
       required: true,
     },
     surveyOwner: {
-      type: String,
+      type: Schema.Types.ObjectId,
       required: true,
+    },
+    organization: {
+      type: String,
+      require: true,
     },
     surveyType: {
       type: String,
@@ -24,6 +29,14 @@ const survey = new Schema(
     status: {
       type: Boolean,
       default: true,
+    },
+    public: {
+      type: Boolean,
+      default: true,
+    },
+    accessCode: {
+      type: String,
+      default: "",
     },
     dateCreated: {
       type: Date,

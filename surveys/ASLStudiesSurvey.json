@@ -1,10 +1,20 @@
 {
     "surveyName":"ASL Survey",
-    "surveyOwner":"Leo Yang",
+    "surveyOwner":"63d9e3eaee30c5b882f5592f",
+    "organization":"Liu Yang",
+    "surveyType":"Academic",
     "description":"Basic Logo-syllabic Chinese Character",
     "status":true,
     "dateEnd": "12-31-2023",
+    "public":false,
+    "accessCode":"ASL2023",
     "questions":[
+        {"questionType":"CustomUserInfo","question":"Please enter your information.",
+        "options":[],
+        "correctOption":null,
+        "imgURL":[],
+        "imgDesc":[]
+       },
         {"questionType":"MC","question":"Are you identified as Deaf, Hard of Hearing, or Hearing?",
         "options":["Deaf","Hard of Hearing","Hearing"],
         "correctOption":null,

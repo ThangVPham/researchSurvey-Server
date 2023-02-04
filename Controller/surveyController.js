@@ -11,13 +11,25 @@ const getAllSurveyData = async (req, res) => {
 };
 
 const getSurveyById = async (req, res) => {
-  const id = req.params.id;
+  let id = "";
+
+  if (req.body.surveyId) {
+    id = req.body.surveyId;
+  } else {
+    id = req.params.id;
+  }
+
+  const accessAllow = req.accessAllow;
+
   try {
     let survey = await Survey.findById(id);
-
-    if (survey) {
+    console.log(id);
+    if (survey.public || accessAllow) {
       console.log(`Survey Found By ID: ${id}`);
       res.json(survey);
+    } else if (!survey.public) {
+      console.log(`Survey ${id} is private`);
+      res.json({ errorMessage: "verifyAccess" });
     } else {
       console.log("No Surveys Found");
       res.json({ message: "No Surveys Found" });
@@ -32,7 +44,7 @@ const submitSurvey = async (req, res) => {
   let survey = req.body;
   try {
     await Survey.create(survey);
-    console.log("Survey Successfuly Created");
+    console.log("Survey Successfuly Created.");
     res.json({ message: "Survey Successfuly Created" });
   } catch (e) {
     console.log(e);
@@ -46,8 +58,8 @@ const deleteSurvey = async (req, res) => {
   try {
     const survey = await Survey.findOneAndDelete({ _id: id });
     if (survey) {
-      console.log("Survey Deleted");
-      res.json({ message: "Survey Deleted" });
+      console.log(`Survey Deleted. ID: ${id}`);
+      res.json({ message: `Survey Deleted. ID: ${id}` });
     } else {
       console.log("Survey Not Found");
       res.json({ message: "Survey Not Found" });

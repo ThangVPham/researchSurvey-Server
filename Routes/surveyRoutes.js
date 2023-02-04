@@ -1,8 +1,14 @@
 const express = require("express");
 const router = express.Router();
 const surveyController = require("../Controller/surveyController");
-const { authenticate } = require("../auth/authMiddleware");
+const { authenticate, verifyAccess } = require("../auth/authMiddleware");
 
+router.post(
+  "/verifyaccess",
+  authenticate,
+  verifyAccess,
+  surveyController.getSurveyById
+);
 router.get("/", authenticate, surveyController.getAllSurveyData);
 router.get("/:id", authenticate, surveyController.getSurveyById);
 router.put("/:id", authenticate, surveyController.editSurvey);

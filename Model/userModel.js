@@ -21,6 +21,14 @@ const user = new Schema(
       type: String,
       required: true,
     },
+    phone: {
+      type: String,
+      default: "",
+    },
+    location: {
+      type: String,
+      default: "",
+    },
     surveyTaken: {
       type: Array,
       default: [],

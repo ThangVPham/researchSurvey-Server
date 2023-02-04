@@ -1,6 +1,8 @@
 {
     "surveyName":"Social Media Survey Questions",
-    "surveyOwner":"American Psychology Assiciation",
+    "surveyOwner":"63d9e3eaee30c5b882f5592f",
+    "organization":"American Psychology Assiciation",
+    "surveyType":"Socio-Economics",
     "description":"This sample survey template consists of questions that gather information about people's social media usage. Our team of experts designs this survey questionnaire on social media after carefully calibrating the attributes and personalities of people.",
     "status":true,
     "dateEnd": "12-31-2024",

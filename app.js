@@ -13,9 +13,7 @@ app.use(express.static("assets"));
 const testDB_URL =
   "mongodb+srv://ThangPham:PasswordThangPham@cluster-comp229.uro55.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 mongoose
-  .connect(
-    "mongodb+srv://ThangPham:PasswordThangPham@cluster-comp229.uro55.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
-  )
+  .connect(testDB_URL)
   .then((result) => {
     console.log("Remote Database Connected");
 

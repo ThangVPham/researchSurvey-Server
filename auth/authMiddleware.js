@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
 const User = require("../Model/userModel");
+const Survey = require("../Model/surveyModel");
 require("dotenv").config();
 
 const authenticate = async (req, res, next) => {
@@ -17,7 +18,6 @@ const authenticate = async (req, res, next) => {
       req.user = await User.findById(decodedToken.id).select("_id");
       next();
     } catch (e) {
-      console.log("here");
       console.log(e);
       res
         .status(401)
@@ -28,4 +28,23 @@ const authenticate = async (req, res, next) => {
   }
 };
 
-module.exports = { authenticate };
+const verifyAccess = async (req, res, next) => {
+  const accessCode = req.body.accessCode;
+  const surveyId = req.body.surveyId;
+  try {
+    const survey = await Survey.findById(surveyId);
+
+    if (survey.accessCode === accessCode) {
+      req.accessAllow = true;
+      next();
+    } else {
+      console.log("Invalid Access Code");
+      res.json({ errorMessage: "Invalid Access Code" });
+    }
+  } catch (e) {
+    console.log(e);
+    res.json({ errorMessage: e.message });
+  }
+};
+
+module.exports = { authenticate, verifyAccess };
