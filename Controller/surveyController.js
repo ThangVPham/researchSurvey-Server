@@ -29,7 +29,7 @@ const getSurveyById = async (req, res) => {
       res.json(survey);
     } else if (!survey.public) {
       console.log(`Survey ${id} is private`);
-      res.json({ errorMessage: "verifyAccess" });
+      res.json({ errorMessage: "verifyAccess", surveyName: survey.surveyName });
     } else {
       console.log("No Surveys Found");
       res.json({ message: "No Surveys Found" });
