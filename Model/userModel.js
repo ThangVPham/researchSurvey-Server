@@ -36,6 +36,10 @@ const user = new Schema(
       type: Array,
       default: [],
     },
+    dateCreated: {
+      type: Date,
+      default: Date.now(),
+    },
   },
   {
     collection: "users",
