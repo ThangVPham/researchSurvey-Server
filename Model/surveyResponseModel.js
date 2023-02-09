@@ -4,19 +4,17 @@ const Schema = mongoose.Schema;
 const response = new Schema(
   {
     userRef: {
-      type: String,
+      type: Schema.Types.ObjectId,
       required: true,
     },
     surveyId: {
-      type: String,
+      type: Schema.Types.ObjectId,
       required: true,
     },
-    response: [
-      {
-        type: Object,
-        require: true,
-      },
-    ],
+    response: {
+      type: Object,
+      require: true,
+    },
   },
   {
     collection: "responses",

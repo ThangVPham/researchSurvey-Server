@@ -16,6 +16,8 @@ const authenticate = async (req, res, next) => {
       const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
 
       req.user = await User.findById(decodedToken.id).select("_id");
+
+      req.survey = await Survey.findById(req.headers.surveyid).select("_id");
       next();
     } catch (e) {
       console.log(e);
@@ -31,6 +33,8 @@ const authenticate = async (req, res, next) => {
 const verifyAccess = async (req, res, next) => {
   const accessCode = req.body.accessCode;
   const surveyId = req.body.surveyId;
+  console.log(accessCode);
+
   try {
     const survey = await Survey.findById(surveyId);
 

@@ -61,12 +61,12 @@ const loginUser = async (req, res) => {
 
 const getUserById = async (req, res) => {
   const token = req.headers.authorization.split(" ")[1];
-  console.log(token);
+
   const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
 
   try {
     const user = await User.findById(decodedToken.id).select("-password");
-    console.log(user);
+
     res.json(user);
   } catch (e) {
     console.log(e);

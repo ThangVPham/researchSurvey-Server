@@ -20,23 +20,34 @@ const getSurveyById = async (req, res) => {
   }
 
   const accessAllow = req.accessAllow;
-
-  try {
-    let survey = await Survey.findById(id);
-    console.log(id);
-    if (survey.public || accessAllow) {
-      console.log(`Survey Found By ID: ${id}`);
+  if (req.headers.type === "edit") {
+    try {
+      let survey = await Survey.findById(id);
       res.json(survey);
-    } else if (!survey.public) {
-      console.log(`Survey ${id} is private`);
-      res.json({ errorMessage: "verifyAccess", surveyName: survey.surveyName });
-    } else {
-      console.log("No Surveys Found");
-      res.json({ message: "No Surveys Found" });
+    } catch (e) {
+      console.log(e);
     }
-  } catch (e) {
-    console.log(e);
-    res.json({ message: e.message });
+  } else {
+    try {
+      let survey = await Survey.findById(id);
+      console.log(id);
+      if (survey.public || accessAllow) {
+        console.log(`Survey Found By ID: ${id}`);
+        res.json(survey);
+      } else if (!survey.public) {
+        console.log(`Survey ${id} is private`);
+        res.json({
+          errorMessage: "verifyAccess",
+          surveyName: survey.surveyName,
+        });
+      } else {
+        console.log("No Surveys Found");
+        res.json({ message: "No Surveys Found" });
+      }
+    } catch (e) {
+      console.log(e);
+      res.json({ message: e.message });
+    }
   }
 };
 
@@ -73,6 +84,7 @@ const deleteSurvey = async (req, res) => {
 const editSurvey = async (req, res) => {
   const id = req.params.id;
   const newSurvey = req.body;
+  console.log(newSurvey);
   try {
     let survey = await Survey.findByIdAndUpdate({ _id: id }, newSurvey);
     if (survey) {
