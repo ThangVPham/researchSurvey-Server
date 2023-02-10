@@ -56,7 +56,7 @@ const submitSurvey = async (req, res) => {
   try {
     await Survey.create(survey);
     console.log("Survey Successfuly Created.");
-    res.json({ message: "Survey Successfuly Created" });
+    res.json({ message: "Survey Successfuly Created", status: "Success" });
   } catch (e) {
     console.log(e);
     res.json({ message: e.message });
@@ -70,7 +70,7 @@ const deleteSurvey = async (req, res) => {
     const survey = await Survey.findOneAndDelete({ _id: id });
     if (survey) {
       console.log(`Survey Deleted. ID: ${id}`);
-      res.json({ message: `Survey Deleted. ID: ${id}` });
+      res.json({ message: `Survey Deleted. ID: ${id}`, status: "Success" });
     } else {
       console.log("Survey Not Found");
       res.json({ message: "Survey Not Found" });
