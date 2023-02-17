@@ -75,7 +75,7 @@ const getUserById = async (req, res) => {
 };
 const generateToken = (id) => {
   const token = jwt.sign({ id }, process.env.JWT_SECRET, {
-    expiresIn: "24h",
+    expiresIn: "365d", //Change value to appropriate amount for Production
   });
   return token;
 };
