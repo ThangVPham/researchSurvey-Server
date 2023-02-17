@@ -4,8 +4,9 @@
     "organization":"Buzzfeed",
     "surveyType":"Academic",
     "description":"Test your knowledge of science facts and applications of scientific principles by taking our 11-question quiz. When you finish, you will be able to compare your scores with the average American and compare responses across demographic groups. Our nationally representative poll of 4,464 randomly selected U.S. adults was conducted on Pew Research Center's American Trends Panel between Jan. 7 and Jan. 21, 2019. The analysis of the findings from the poll can be found in the full report, “What Americans Know About Science.”",
-    "status":true,
+    "activeStatus":true,
     "dateEnd": "12-31-2024",
+    "instructionMessage":"",
     "questions":[
         {"questionType":"MC","question":"Oil, natural gas and coal are examples of? ",
         "options":["Biofuels","Fossil Fuels","Geothermal resources","Renewable resources"],

@@ -4,10 +4,11 @@
     "organization":"Liu Yang",
     "surveyType":"Academic",
     "description":"Basic Logo-syllabic Chinese Character",
-    "status":true,
+    "activeStatus":true,
     "dateEnd": "12-31-2023",
     "public":false,
     "accessCode":"ASL2023",
+    "instructionMessage":"",
     "questions":[
         {"questionType":"CustomUserInfo","question":"Please enter your information.",
         "options":[],

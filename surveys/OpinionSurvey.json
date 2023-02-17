@@ -4,8 +4,9 @@
     "organization":"Market Research Foundation",
     "surveyType":"Market",
     "description":"Good survey questions will help your business acquire the right information to drive growth. Surveys can be made up of different types of questions. Each type has a unique approach to gathering data",
-    "status":false,
+    "activeStatus":false,
     "dateEnd": "12-31-2022",
+    "instructionMessage":"",
     "questions":[
         {"questionType":"Long Feedback","question":"What can you tell us about yourself? (Your age, gender, hobbies, interests, and anything else you’re willing to share)",
         "options":[],

@@ -4,8 +4,9 @@
     "organization":"Survey Monkey",
     "surveyType":"Market",
     "description":"Product survey template for market research",
-    "status":false,
+    "activeStatus":false,
     "dateEnd": "12-31-2022",
+    "instructionMessage":"",
     "questions":[
         {"questionType":"Long Feedback","question":"What is your first reaction to the product",
         "options":["Very positive","Somewhat positive","Neutral", "Somewhat negative", "Very negative"],

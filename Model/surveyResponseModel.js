@@ -17,6 +17,10 @@ const response = new Schema(
       type: Object,
       require: true,
     },
+    dateCreated: {
+      type: Date,
+      default: Date.now(),
+    },
   },
   {
     collection: "responses",

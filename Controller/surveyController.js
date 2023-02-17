@@ -1,5 +1,5 @@
 const Survey = require("../Model/surveyModel");
-
+const Response = require("../Model/surveyResponseModel");
 const getAllSurveyData = async (req, res) => {
   try {
     let surveys = await Survey.find().sort({ dateCreated: -1 });
@@ -20,34 +20,43 @@ const getSurveyById = async (req, res) => {
   }
 
   const accessAllow = req.accessAllow;
-  if (req.headers.type === "edit") {
-    try {
-      let survey = await Survey.findById(id);
+
+  try {
+    let survey = await Survey.findById(id);
+    console.log(id);
+    if (survey.public || accessAllow) {
+      console.log(`Survey Found By ID: ${id}`);
       res.json(survey);
-    } catch (e) {
-      console.log(e);
+    } else if (!survey.public) {
+      console.log(`Survey ${id} is private`);
+      res.json({
+        errorMessage: "verifyAccess",
+        surveyName: survey.surveyName,
+      });
+    } else {
+      console.log("No Surveys Found");
+      res.json({ message: "No Surveys Found" });
     }
-  } else {
-    try {
-      let survey = await Survey.findById(id);
-      console.log(id);
-      if (survey.public || accessAllow) {
-        console.log(`Survey Found By ID: ${id}`);
-        res.json(survey);
-      } else if (!survey.public) {
-        console.log(`Survey ${id} is private`);
-        res.json({
-          errorMessage: "verifyAccess",
-          surveyName: survey.surveyName,
-        });
-      } else {
-        console.log("No Surveys Found");
-        res.json({ message: "No Surveys Found" });
-      }
-    } catch (e) {
-      console.log(e);
-      res.json({ message: e.message });
-    }
+  } catch (e) {
+    console.log(e);
+    res.json({ message: e.message });
+  }
+};
+
+const surveyDetailById = async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    const survey = await Survey.findById(id);
+    const response = await Response.find({ surveyId: survey }).populate(
+      "userRef"
+    );
+
+    const data = { survey, response };
+
+    res.json(data);
+  } catch (e) {
+    console.log(e);
   }
 };
 
@@ -107,4 +116,5 @@ module.exports = {
   getSurveyById,
   deleteSurvey,
   editSurvey,
+  surveyDetailById,
 };

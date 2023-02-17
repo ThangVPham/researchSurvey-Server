@@ -25,7 +25,7 @@ const survey = new Schema(
       type: String,
       required: false,
     },
-    status: {
+    activeStatus: {
       type: Boolean,
       default: true,
     },
@@ -44,6 +44,9 @@ const survey = new Schema(
     dateEnd: {
       type: Date,
       required: true,
+    },
+    instructionMessage: {
+      type: String,
     },
     questions: [
       {

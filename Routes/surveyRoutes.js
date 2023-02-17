@@ -11,6 +11,11 @@ router.post(
 );
 router.get("/", authenticate, surveyController.getAllSurveyData);
 router.get("/:id", authenticate, surveyController.getSurveyById);
+router.get(
+  "/surveydetail/:id",
+  authenticate,
+  surveyController.surveyDetailById
+);
 router.put("/:id", authenticate, surveyController.editSurvey);
 router.delete("/:id", authenticate, surveyController.deleteSurvey);
 router.post("/newsurvey", authenticate, surveyController.submitSurvey);
