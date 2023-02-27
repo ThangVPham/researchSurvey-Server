@@ -64,6 +64,10 @@ const survey = new Schema(
         imgDesc: [String],
       },
     ],
+    numResponse: {
+      type: Number,
+      default: 0,
+    },
   },
   {
     collection: "surveys",

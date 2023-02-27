@@ -12,6 +12,12 @@ router.post(
 router.get("/", authenticate, surveyController.getAllSurveyData);
 router.get("/:id", authenticate, surveyController.getSurveyById);
 router.get(
+  "/surveyOwnerView/:id",
+  authenticate,
+  surveyController.getSurveyById
+);
+
+router.get(
   "/surveydetail/:id",
   authenticate,
   surveyController.surveyDetailById

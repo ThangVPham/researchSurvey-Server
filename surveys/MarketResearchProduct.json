@@ -23,7 +23,7 @@
         "Not so innovative","Not at all innovative"],"correctOption":null,"imgURL":[],"imgDesc":[]},
 
 
-        {"questionType":"Checkbox","question":"When you think about the product, do you think of it as something you need or don't need?","options":["Definitely need","Probably need","Neutral","Probably don't need", "Definitely don't need"],"correctOption":null,"imgURL":[],"imgDesc":[]},
+        {"questionType":"MC","question":"When you think about the product, do you think of it as something you need or don't need?","options":["Definitely need","Probably need","Neutral","Probably don't need", "Definitely don't need"],"correctOption":null,"imgURL":[],"imgDesc":[]},
 
 
         {"questionType":"MC","question":"How would you rate the value for money of the product?","options":["Excellent","Above average","Average","Below average","Poor"],"correctOption":null,"imgURL":[],"imgDesc":[]},
@@ -32,7 +32,7 @@
         {"questionType":"MC","question":"If the product were available today, how likely would you be buying the product?","options":["Extremely likely","Very likely","Somewhat likely","Not so likely","Not at all likely"],"correctOption":null,"imgURL":[],"imgDesc":[]},
 
 
-        {"questionType":"Other","question":"How likely is it that you would recommend our new product to a friend or colleague?","options":["Extremely likely","Very likely","Somewhat likely","Not so likely","Not at all likely"],"correctOption":null,"imgURL":[],"imgDesc":[]},
+        {"questionType":"MC","question":"How likely is it that you would recommend our new product to a friend or colleague?","options":["Extremely likely","Very likely","Somewhat likely","Not so likely","Not at all likely"],"correctOption":null,"imgURL":[],"imgDesc":[]},
 
         {"questionType":"Long Feedback","question":"In your own words, what are the things that you like most about this new product?","options":[],"correctOption":null,"imgURL":[],"imgDesc":[]},
         

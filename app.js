@@ -14,7 +14,7 @@ app.use(express.static("assets"));
 // const testDB_URL =
 //   "mongodb+srv://ThangPham:PasswordThangPham@cluster-comp229.uro55.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 mongoose
-  .connect(process.env.DEV_DB_URL)
+  .connect(process.env.DB_URL)
   .then(() => {
     console.log("Remote Database Connected");
 

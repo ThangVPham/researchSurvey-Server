@@ -22,10 +22,9 @@ const getSurveyById = async (req, res) => {
   }
 
   const accessAllow = req.accessAllow;
-
   try {
     let survey = await Survey.findById(id);
-    console.log(id);
+    //Serve data if survey is public,survey taker entered correct access code, or survey owner is accessing
     if (survey.public || accessAllow) {
       console.log(`Survey Found By ID: ${id}`);
       res.json(survey);
@@ -76,7 +75,8 @@ const submitSurvey = async (req, res) => {
 
 const deleteSurvey = async (req, res) => {
   const id = req.params.id;
-  console.log(id);
+  console.log("Deleting");
+
   try {
     const survey = await Survey.findOneAndDelete({ _id: id });
     if (survey) {
@@ -95,13 +95,14 @@ const deleteSurvey = async (req, res) => {
 const editSurvey = async (req, res) => {
   const id = req.params.id;
   const newSurvey = req.body;
-  console.log(newSurvey);
+
   try {
-    let survey = await Survey.findByIdAndUpdate({ _id: id }, newSurvey);
+    const survey = await Survey.findByIdAndUpdate({ _id: id }, newSurvey);
+    let surveys = await Survey.find().sort({ dateCreated: -1 });
     if (survey) {
       console.log("Survey Sucessfully Updated");
-      survey = await Survey.findById(id);
-      res.json(survey);
+
+      res.json(surveys);
     } else {
       console.log("Survey Not Found");
       res.json({ message: "Survey Not Found" });

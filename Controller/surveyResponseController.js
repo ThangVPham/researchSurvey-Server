@@ -1,6 +1,6 @@
 const Response = require("../Model/surveyResponseModel");
 const Email = require("../Model/emailModel");
-
+const Survey = require("../Model/surveyModel");
 const submitSurveyResponse = async (req, res) => {
   const responseObj = {
     userRef: req.user,
@@ -14,6 +14,7 @@ const submitSurveyResponse = async (req, res) => {
 
   try {
     await Response.create(responseObj);
+    await Survey.findByIdAndUpdate(req.survey, { $inc: { numResponse: 1 } });
     console.log("Response Successfully Submitted");
     res.json({ message: "Response Successfully Submitted", status: "Success" });
   } catch (e) {
