@@ -2,7 +2,6 @@ const Survey = require("./Model/surveyModel");
 const fetch = (...args) =>
   import("node-fetch").then(({ default: fetch }) => fetch(...args));
 //Remove this before push to production
-const ASL = require("./surveys/ASLStudiesSurvey.json");
 const MarketResearch = require("./surveys/MarketResearchProduct.json");
 const OpinionSurvey = require("./surveys/OpinionSurvey.json");
 const ScienceQuiz = require("./surveys/ScienceQuiz.json");
@@ -10,7 +9,6 @@ const SocialMediaSurvey = require("./surveys/SocialMediaSurvey.json");
 
 const fillSurvey = async () => {
   const surveys = [
-    ASL,
     MarketResearch,
     OpinionSurvey,
     ScienceQuiz,

@@ -32,8 +32,9 @@ const user = new Schema(
       type: String,
       default: "",
     },
-    surveyTaken: {
-      type: Array,
+    surveys: {
+      type: Schema.Types.ObjectId,
+      ref: "survey",
       default: [],
     },
     dateCreated: {

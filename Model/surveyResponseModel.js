@@ -3,11 +3,6 @@ const Schema = mongoose.Schema;
 
 const response = new Schema(
   {
-    userRef: {
-      type: Schema.Types.ObjectId,
-      ref: "user",
-      required: true,
-    },
     surveyId: {
       type: Schema.Types.ObjectId,
       ref: "survey",

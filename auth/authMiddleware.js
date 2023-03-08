@@ -40,6 +40,7 @@ const verifyAccess = async (req, res, next) => {
 
     if (survey.accessCode === accessCode) {
       req.accessAllow = true;
+
       next();
     } else {
       console.log("Invalid Access Code");

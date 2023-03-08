@@ -10,9 +10,7 @@ const app = express();
 const PORT = 5000;
 const { fillSurvey } = require("./fillSurvey");
 app.use(express.static("assets"));
-//  process.env.DB_URI;
-// const testDB_URL =
-//   "mongodb+srv://ThangPham:PasswordThangPham@cluster-comp229.uro55.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+
 mongoose
   .connect(process.env.DB_URL)
   .then(() => {
